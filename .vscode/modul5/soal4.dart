@@ -1,0 +1,25 @@
+void main() {
+  print("\n******** MENGGUNAKAN MULTIPLE CATCH ********\n");
+  try {
+    List<int> array = List.filled(9, 0);
+    array[7] = 13; // penyebab exception (indeks ke-9 tidak ada, hanya 0–8)
+    print("Elemen array indeks ke-7 adalah ${array[7]}");
+    print("Pernyataan dalam blok try setelah bebas dari exception.");
+  } on RangeError catch (e) {
+    print(
+      "RangeError: Anda mengakses array di luar indeks yang dideklarasikan.",
+    );
+    print("Detail error: $e");
+  } on ArgumentError catch (e) {
+    print("ArgumentError: Anda membuat array dengan ukuran yang salah.");
+    print("Detail error: $e");
+  } catch (e) {
+    print("Exception umum: ${e.runtimeType} → $e");
+  }
+  print("\nPernyataan di luar blok try-catch.");
+}
+
+
+
+
+
